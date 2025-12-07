@@ -140,6 +140,15 @@ def process_transactions(
         if stats['amount_errors'] > 0:
             console.print(f"[yellow]{stats['amount_errors']} amount parsing errors[/yellow]")
         
+        # Create output directory if needed
+        if output_file:
+            output_path = Path(output_file)
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        if report_file:
+            report_path = Path(report_file)
+            report_path.parent.mkdir(parents=True, exist_ok=True)
+
         # Write cleaned output (if requested)
         if output_file:
             console.print(f"\n[bold]Writing cleaned data...[/bold]")
