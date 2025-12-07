@@ -276,7 +276,7 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
     # Set seed for reproducibility
-    random.seed(12)
+    random.seed(42)
     
     # Print banner
     banner = """

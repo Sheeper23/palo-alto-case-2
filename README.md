@@ -46,7 +46,7 @@ CLI Input -> Parser -> Normalizer -> Analyzer -> Report Output
 
 ### Test Data Generation
 
-I chose to create synthetic transaction data using `data/generate_test_data.py`. This is because:
+I chose to create synthetic transaction data using `data/generate_test_data.py`. This is because of:
 1. **Testing Control**: I could intentionally create specific edge cases that I thought of
 2. **No External Dependencies**: No licensing or copyright concerns
 
@@ -58,8 +58,7 @@ Edge cases include invalid leap years, unicode characters, empty fields, extreme
 
 ### Date Normalization
 - **Library**: `python-dateutil`
-- **Reasoning**: Handles 100+ date formats. Custom date
-  parsers are prone to errors given how complex date analysis can get.
+- **Reasoning**: Handles 100+ date formats. Custom date parsers are prone to errors given how complex date parsing can get.
 - **Additional Validation**: I added a reasonable year range check (1900-current year + 1)
 
 ### Merchant Normalization  
@@ -87,7 +86,7 @@ Edge cases include invalid leap years, unicode characters, empty fields, extreme
 
 ### CLI Interface & Pipeline Orchestration
 - **Library**: `argparse` (standard library)
-- **Reasoning**: argparse provides robust CLI parsing with automatic help generation and validation.
+- **Reasoning**: `argparse` provides robust CLI parsing with automatic help generation and validation.
 - **Design Pattern**: Pipeline architecture (parse -> normalize -> analyze) with graceful error handling and logging. If normalization fails on some rows, we continue processing valid ones rather than crashing.
 - **Error Handling**: 
   - Validates input file existence before processing
